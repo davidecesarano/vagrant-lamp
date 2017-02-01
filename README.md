@@ -17,6 +17,7 @@ Configurazione personale per il setup di un server LAMP con Vagrant.
 * Apache 2.4.7
 * PHP 5.5.9
 * MySQL 5.5.54
+* phpMyAdmin 4.0.10
 * Git
 * Composer
 * Node.js
@@ -48,4 +49,4 @@ Se si preferisce utilizzare un nome di dominio rispetto a un indirizzo IP è pos
 * Host: localhost
 * Port: 3306
 
-***Nota:*** Per accedere al database MySQL è necessario utilizzare un Client MySQL.
+***Nota:*** Per accedere al database MySQL con phpMyAdmin http://192.168.33.10/phpmyadmin
