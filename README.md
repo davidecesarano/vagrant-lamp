@@ -1,5 +1,5 @@
 # Vagrant LAMP (Linux Apache MySQL PHP)
-Configurazione personale per il setup di un server LAMP su Ubuntu 14.04 con Vagrant.
+Configurazione personale per il setup di un server LAMP con Vagrant.
 
 ## Requisiti
 * [VirtualBox](https://www.virtualbox.org/)
