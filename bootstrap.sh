@@ -17,6 +17,14 @@ sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again p
 sudo apt-get -y install mysql-server
 sudo apt-get install php5-mysql
 
+echo -e "\n--- Installa phpMyAdmin ---\n"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password $PASSWORD"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $PASSWORD"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $PASSWORD"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
+sudo apt-get -y install phpmyadmin
+
 echo -e "\n--- Crea VirtualHost ---\n"
 VHOST=$(cat <<EOF
 <VirtualHost *:80>
@@ -51,6 +59,14 @@ echo -e "\n--- Cambia percorso directory database MySQL ---\n"
 sudo sed -i 's#/var/lib/mysql#/var/www/mysql#g' /etc/mysql/my.cnf
 sudo sed -i 's#/var/lib/mysql#/var/www/mysql#g' /etc/apparmor.d/usr.sbin.mysqld
 sudo /etc/init.d/apparmor reload
+
+echo -e "\n--- Abilita mcrypt per phpMyAdmin ---\n"
+sudo updatedb
+sudo sed -i 's#extension=mcrypt.so#extension=/usr/lib/php5/20121212/mcrypt.so#g' /etc/php5/mods-available/mcrypt.ini
+sudo ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
+sudo ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/apache2/conf.d/20-mcrypt.ini
+sudo service apache2 restart
+sudo service php5 restart
 
 echo -e "\n--- Installa GIT ---\n"
 sudo apt-get -y install git
