@@ -23,9 +23,9 @@ Configurazione personale per il setup di un server LAMP su Ubuntu 14.04 con Vagr
 * Bower
 
 ## Installazione
-Clonare questa repository
+Clonare la repository
 ```
-$ git clone https://github.com/davidecesarano/my-vagrant-lamp .git
+$ git clone https://github.com/davidecesarano/my-vagrant-lamp.git
 ```
 
 ## Utilizzo
