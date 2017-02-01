@@ -1,7 +1,6 @@
 !/usr/bin/env bash
 
 PASSWORD='vagrant'
-PROJECTFOLDER='local.dev'
 
 echo -e "\n--- Aggiorna l'indice dei pacchetti ---\n"
 sudo apt-get update
@@ -18,14 +17,11 @@ sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again p
 sudo apt-get -y install mysql-server
 sudo apt-get install php5-mysql
 
-echo -e "\n--- Crea directory ${PROJECTFOLDER} ---\n"
-sudo mkdir "/var/www/html/${PROJECTFOLDER}"
-
 echo -e "\n--- Crea VirtualHost ---\n"
 VHOST=$(cat <<EOF
 <VirtualHost *:80>
-    DocumentRoot "/var/www/html/${PROJECTFOLDER}"
-    <Directory "/var/www/html/${PROJECTFOLDER}">
+    DocumentRoot "/var/www/html"
+    <Directory "/var/www/html">
         AllowOverride All
         Require all granted
     </Directory>
@@ -35,8 +31,9 @@ EOF
 echo "${VHOST}" > /etc/apache2/sites-available/000-default.conf
 
 echo -e "\n--- Crea index.php ---\n"
-sudo touch /var/www/html/local.dev/index.php
-echo "<?php phpinfo(); ?>" > /var/www/html/local.dev/index.php
+sudo rm /var/www/html/index.html
+sudo touch /var/www/html/index.php
+echo "<?php phpinfo(); ?>" > /var/www/html/index.php
 
 echo -e "\n--- Attiva mod_rewrite ---\n"
 sudo a2enmod rewrite
