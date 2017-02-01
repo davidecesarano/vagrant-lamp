@@ -5,7 +5,6 @@ Configurazione personale per il setup di un server LAMP con Vagrant.
 * [VirtualBox](https://www.virtualbox.org/)
 * [Vagrant](https://www.vagrantup.com/)
 * [Git](https://git-scm.com/)
-* [Composer](https://getcomposer.org/)
 
 ## Vagrantfile e bootstrap.sh
 * Installa i [software](#software-installati)
