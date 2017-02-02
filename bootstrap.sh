@@ -77,6 +77,7 @@ sudo mv composer.phar /usr/local/bin/composer
 
 echo -e "\n--- Installa Node.js ---\n"
 sudo apt-get -y install nodejs
+sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 echo -e "\n--- Installa NPM ---\n"
 sudo apt-get -y install npm
