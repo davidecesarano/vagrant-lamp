@@ -1,17 +1,17 @@
 # Vagrant LAMP (Linux Apache MySQL PHP)
-Configurazione personale per il setup di un server LAMP con Vagrant.
+Personal configuration for the setup of a LAMP server with Vagrant.
 
-## Requisiti
+## Requirements
 * [VirtualBox](https://www.virtualbox.org/)
 * [Vagrant](https://www.vagrantup.com/)
 * [Git](https://git-scm.com/)
 
-## Vagrantfile e bootstrap.sh
-* Installa i [software](#software-installati)
-* Definisce la web root nella directory `/html`
-* Sposta i database MySQL nella directory `/mysql`
+## Vagrantfile and bootstrap.sh
+* Install the [software](#software-installati)
+* Set the web root directory in `/html`
+* Move the MySQL database directory in `/mysql`
 
-## Software Installati
+## Installed Software
 * Ubuntu Server 14.04 LTS
 * Apache 2.4.7
 * PHP 5.5.9
@@ -22,30 +22,30 @@ Configurazione personale per il setup di un server LAMP con Vagrant.
 * Node.js
 * Bower
 
-## Installazione
-Clonare la repository
+## Installation
+Clone the repository
 ```
 $ git clone https://github.com/davidecesarano/my-vagrant-lamp.git
 ```
 
-## Utilizzo
-Lanciare il comando
+## Usage
+Run the command
 ```
 $ cd my-vagrant-lamp
 $ vagrant up
 ```
-Ora è possibile accedere alla `DocumentRoot` qui http://192.168.33.10
+Now you can access the `DocumentRoot` here http://192.168.33.10
 
 ## Virtual Host
-Se si preferisce utilizzare un nome di dominio rispetto a un indirizzo IP è possibile aggiungere un record al file host del sistema operativo.
+If you prefer to use a domain name than the IP address you can add a record to the host operating system files.
 ```
 192.168.33.10    local.dev
 ```
 
-## Credenziali Database
+## Database
 * Username: root
 * Password: vagrant
 * Host: localhost
 * Port: 3306
 
-***Nota:*** Per accedere al database MySQL con phpMyAdmin http://192.168.33.10/phpmyadmin
+***Note:*** To access the MySQL database with phpMyAdmin http://192.168.33.10/phpmyadmin
