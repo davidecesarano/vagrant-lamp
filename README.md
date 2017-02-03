@@ -21,6 +21,7 @@ Personal configuration for the setup of a LAMP server with Vagrant.
 * Composer
 * Node.js
 * Bower
+* Gulp
 
 ## Installation
 Clone the repository
