@@ -81,9 +81,4 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 echo -e "\n--- Installa NPM ---\n"
 sudo apt-get -y install npm
-
-echo -e "\n--- Installa Bower ---\n"
-sudo npm install bower -g
-
-echo -e "\n--- Installa Gulp ---\n"
-sudo npm install -g gulp
+npm config set bin-links false
