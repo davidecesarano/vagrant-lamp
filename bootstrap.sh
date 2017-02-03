@@ -81,4 +81,4 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 echo -e "\n--- Installa NPM ---\n"
 sudo apt-get -y install npm
-npm config set bin-links false
+sudo npm config set bin-links false
