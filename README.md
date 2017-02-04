@@ -57,6 +57,6 @@ if you keep your Vagrantfile in a Dropbox (or Google Drive) folder in order to s
 
 In Windows you can set ***VAGRANT_DOTFILE_PATH***:
 
-1. **System > Advanded system settings > Envirorment Variables**
+1. **System > Advanced system settings > Environment Variables**
 2. Select **New**
 3. Variable name = VAGRANT_DOTFILE_PATH, Variable value = .vagrant-home
