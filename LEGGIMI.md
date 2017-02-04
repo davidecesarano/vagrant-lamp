@@ -1,6 +1,8 @@
 # Vagrant LAMP (Linux Apache MySQL PHP)
 Configurazione personale per il setup di un server LAMP con Vagrant.
 
+***Nota:*** Questa configurazione è stata provata su sistemi operativi Microsoft Windows.
+
 ## Requisiti
 * [VirtualBox](https://www.virtualbox.org/)
 * [Vagrant](https://www.vagrantup.com/)
@@ -54,8 +56,8 @@ Se si preferisce utilizzare un nome di dominio rispetto a un indirizzo IP è pos
 
 Se il file Vagrantfile è posizionato in una cartella di Dropbox (o Google Drive) al fine di condividerla tra più pc (ad esempio tra quello di casa e quello dell'ufficio), Vagrant sovrascriverà i file rendendo impossibile la sincronizzazione tra le due macchine. Per evitare questo, è possibile impostare la variabile di sistema ***VAGRANT_DOTFILE_PATH*** per avere directory diverse per ogni pc (ad es. .vagrant-work per il pc dell'ufficio e .vagrant-desktop per il pc di casa).
 
-In Windows you can set VAGRANT_DOTFILE_PATH:
+La variabile ***VAGRANT_DOTFILE_PATH*** può essere impostata in Windows seguendo questa procedura:
 
-System > Advanded system settings > Envirorment Variables
-Select New
-Variable name = VAGRANT_DOTFILE_PATH, Variable value = .vagrant-home
+1. **Sistema > Impostazioni di sistema avanzata > Variabili d'ambiente...**
+2. In Variabili di Sistema seleziona **Nuova..**
+3. Nome variabile = VAGRANT_DOTFILE_PATH, Valore variabile = .vagrant-home
