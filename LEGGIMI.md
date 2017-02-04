@@ -49,3 +49,13 @@ Se si preferisce utilizzare un nome di dominio rispetto a un indirizzo IP è pos
 * Port: 3306
 
 ***Nota:*** Per accedere al database MySQL con phpMyAdmin http://192.168.33.10/phpmyadmin
+
+## Cambiare la directory .vagrant
+
+Se il file Vagrantfile è posizionato in una cartella di Dropbox (o Google Drive) al fine di condividerla tra più pc (ad esempio tra quello di casa e quello dell'ufficio), Vagrant sovrascriverà i file rendendo impossibile la sincronizzazione tra le due macchine. Per evitare questo, è possibile impostare la variabile di sistema ***VAGRANT_DOTFILE_PATH*** per avere directory diverse per ogni pc (ad es. .vagrant-work per il pc dell'ufficio e .vagrant-desktop per il pc di casa).
+
+In Windows you can set VAGRANT_DOTFILE_PATH:
+
+System > Advanded system settings > Envirorment Variables
+Select New
+Variable name = VAGRANT_DOTFILE_PATH, Variable value = .vagrant-home
