@@ -59,3 +59,23 @@ La variabile ***VAGRANT_DOTFILE_PATH*** può essere impostata in Windows seguend
 1. **Sistema > Impostazioni di sistema avanzata > Variabili d'ambiente...**
 2. In Variabili di Sistema seleziona **Nuova..**
 3. Nome variabile = VAGRANT_DOTFILE_PATH, Valore variabile = .vagrant-home
+
+## Usare npm install
+Il mancato funzionamento del comando **npm install** è dovuto alla mancanza di supporto per i link simbolici in Windows e da una configurazione di Vagrant che impedisce la creazione link simbolici nelle cartelle condivise. Per aggirare questo problema è necessario seguire questi passaggi:
+
+1. Eseguire il prompt dei comandi Windows (o Git Bash) in **modalità amministratore**.
+2. Lanciare i comandi
+```
+$ vagrant up
+$ vagrant ssh
+```
+3. Nella directory in cui vogliamo installare i packages npm eliminare, se presente, la directory **node_modules**.
+4. La directory node_modules deve essere necessariamente sposata dalla cartella condivisa di Vagrant. Creare, quindi, una directory con
+```
+$ mkdir ~/node_modules_project
+```
+5. Creare un link simbolico dalla directory ~/node_modules_project a quella in cui si vogliono installare i packages
+```
+$sudo ln -s ~/node_modules_project /var/www/html/project
+```
+6. In `/var/www/html/project` è ora possibile installare un pacchetto locale con `npm install`.
