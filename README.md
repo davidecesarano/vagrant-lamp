@@ -1,7 +1,7 @@
 # Vagrant LAMP (Linux Apache MySQL PHP)
 Personal configuration for the setup of a LAMP server with Vagrant.
 
-***Note:*** This configuration has been set to Windows 7 and Window 10. 
+***Note:*** This configuration has been set on Microsoft Windows. 
 
 ## Requirements
 * [VirtualBox](https://www.virtualbox.org/)
@@ -21,6 +21,8 @@ Personal configuration for the setup of a LAMP server with Vagrant.
 * phpMyAdmin 4.0.10
 * Git
 * Composer
+* Nodejs
+* npm
 
 ## Installation
 Clone the repository
@@ -29,7 +31,7 @@ $ git clone https://github.com/davidecesarano/my-vagrant-lamp.git
 ```
 
 ## Usage
-Run the command
+Run the commands
 ```
 $ cd my-vagrant-lamp
 $ vagrant up
@@ -58,3 +60,22 @@ In Windows you can set ***VAGRANT_DOTFILE_PATH***:
 1. **System > Advanced system settings > Environment Variables**
 2. Select **New**
 3. Variable name = VAGRANT_DOTFILE_PATH, Variable value = .vagrant-home
+
+## Use npm install
+
+* Run cmd (or Git Bash) in **Run as Administrator**.
+* Run the commands
+```
+$ vagrant up
+$ vagrant ssh
+```
+* Delete the **node_modules** directory if it exists in project directory.
+* Create a directory "node_modules_project" in the VM's home directory
+```
+$ mkdir ~/node_modules_project
+```
+* Link a local node_modules dir from within the project's directory
+```
+$sudo ln -s ~/node_modules_project /var/www/html/project
+```
+* Install the packages in `/var/www/html/project` with `npm install`.
