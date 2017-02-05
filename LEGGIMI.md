@@ -1,15 +1,15 @@
 # Vagrant LAMP (Linux Apache MySQL PHP)
 Configurazione personale per il setup di un server LAMP con Vagrant.
 
-* [Requisiti]()
-* [Vagrant e bootstrap.sh]()
-* [Software Installati]()
+* [Requisiti](#requisiti)
+* [Vagrant e bootstrap.sh](#vagrantfile-e-bootstrapsh)
+* [Software Installati](#software-installati)
 * [Installazione](#installazione)
 * [Utilizzo](#utilizzo)
 * [Virtual Host](#virtual-host)
 * [Credenziali Database](#credenziali-database)
-* [Cambiare la directory .vagrant]()
-* [Usare npm install]()
+* [Cambiare la directory .vagrant](#cambiare-la-directory-vagrant)
+* [Usare npm install](#usare-npm-install)
 
 ***Nota:*** Questa configurazione è stata provata su sistemi operativi Microsoft Windows.
 
