@@ -21,8 +21,6 @@ Personal configuration for the setup of a LAMP server with Vagrant.
 * phpMyAdmin 4.0.10
 * Git
 * Composer
-* Node.js
-* npm
 
 ## Installation
 Clone the repository
