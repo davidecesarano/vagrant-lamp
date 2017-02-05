@@ -52,14 +52,6 @@ sudo service apache2 restart
 echo -e "\n--- Ferma MySQL ---\n"
 sudo /etc/init.d/mysql stop
 
-echo -e "\n--- Copia database MySQL in /var/www/mysql ---\n"
-sudo cp -Rp /var/lib/mysql /var/www
-
-echo -e "\n--- Cambia percorso directory database MySQL ---\n"
-sudo sed -i 's#/var/lib/mysql#/var/www/mysql#g' /etc/mysql/my.cnf
-sudo sed -i 's#/var/lib/mysql#/var/www/mysql#g' /etc/apparmor.d/usr.sbin.mysqld
-sudo /etc/init.d/apparmor reload
-
 echo -e "\n--- Abilita mcrypt per phpMyAdmin ---\n"
 sudo updatedb
 sudo sed -i 's#extension=mcrypt.so#extension=/usr/lib/php5/20121212/mcrypt.so#g' /etc/php5/mods-available/mcrypt.ini
@@ -74,11 +66,3 @@ sudo apt-get -y install git
 echo -e "\n--- Installa Composer ---\n"
 curl -s https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
-
-echo -e "\n--- Installa Node.js ---\n"
-sudo apt-get -y install nodejs
-sudo ln -s /usr/bin/nodejs /usr/bin/node
-
-echo -e "\n--- Installa NPM ---\n"
-sudo apt-get -y install npm
-sudo npm config set bin-links false
