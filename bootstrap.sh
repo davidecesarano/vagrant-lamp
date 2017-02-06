@@ -30,6 +30,7 @@ VHOST=$(cat <<EOF
 <VirtualHost *:80>
     DocumentRoot "/var/www/html"
     <Directory "/var/www/html">
+        Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
     </Directory>
