@@ -39,7 +39,7 @@ $ vagrant up
 Now you can access the `DocumentRoot` here http://192.168.33.10
 
 ## Virtual Host
-If you prefer to use a domain name than the IP address you can add a record to the host operating system files.
+If you prefer to use a domain name than the IP address you can add a record to the host file.
 ```
 192.168.33.10    local.dev
 ```
@@ -61,7 +61,7 @@ In Windows you can set ***VAGRANT_DOTFILE_PATH***:
 2. Select **New**
 3. Variable name = VAGRANT_DOTFILE_PATH, Variable value = .vagrant-home
 
-## Use npm install
+## npm install usage
 
 * Run cmd (or Git Bash) in **Run as Administrator**.
 * Run the commands
@@ -70,12 +70,12 @@ $ vagrant up
 $ vagrant ssh
 ```
 * Delete the **node_modules** directory if it exists in project directory.
-* Create a directory "node_modules_project" in the VM's home directory
+* Create a directory "node_modules" in the VM's home directory
 ```
-$ mkdir ~/node_modules_project
+$ mkdir ~/node_modules
 ```
 * Link a local node_modules dir from within the project's directory
 ```
-$sudo ln -s ~/node_modules_project /var/www/html/project
+$sudo ln -s ~/node_modules /var/www/html/project
 ```
 * Install the packages in `/var/www/html/project` with `npm install`.
