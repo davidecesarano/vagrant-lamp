@@ -76,6 +76,6 @@ $ mkdir ~/node_modules
 ```
 * Link a local node_modules dir from within the project's directory
 ```
-$sudo ln -s ~/node_modules /var/www/html/project
+$ sudo ln -s ~/node_modules /var/www/html/project
 ```
 * Install the packages in `/var/www/html/project` with `npm install`.
