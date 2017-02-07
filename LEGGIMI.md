@@ -41,7 +41,7 @@ $ git clone https://github.com/davidecesarano/my-vagrant-lamp.git
 ```
 
 ## Utilizzo
-Lanciare il comando
+Lanciare i comandi
 ```
 $ cd my-vagrant-lamp
 $ vagrant up
@@ -84,10 +84,10 @@ $ vagrant ssh
 * Nella directory in cui vogliamo installare i packages npm eliminare, se presente, la directory **node_modules**.
 * Creare una directory nel sistema con
 ```
-$ mkdir ~/node_modules_project
+$ mkdir ~/node_modules
 ```
-* Creare un link simbolico dalla directory ~/node_modules_project a quella in cui si vogliono installare i packages
+* Creare un link simbolico dalla directory ~/node_modules a quella in cui si vogliono installare i packages
 ```
-$ sudo ln -s ~/node_modules_project /var/www/html/project
+$ sudo ln -s ~/node_modules /var/www/html/project
 ```
 * In `/var/www/html/project` è ora possibile installare un pacchetto locale con `npm install`.
