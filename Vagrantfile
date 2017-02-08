@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
     config.vm.hostname = "local.dev"
     config.vm.provider "virtualbox" do |v|
         v.memory = 1024
+        v.cpus = 1
     end
     config.vm.synced_folder ".", "/var/www", :mount_options => ["dmode=777", "fmode=666"]
     config.vm.synced_folder "./mysql", "/var/lib/mysql", :mount_options => ["dmode=777", "fmode=666"]
