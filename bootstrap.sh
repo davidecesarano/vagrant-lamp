@@ -25,14 +25,17 @@ sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $
 sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
 sudo apt-get -y install phpmyadmin
 
-echo -e "\n--- Crea VirtualHost ---\n"
+echo -e "\n--- Crea Virtual Host ---\n"
 VHOST=$(cat <<EOF
 <VirtualHost *:80>
-    DocumentRoot "/var/www/html"
-    <Directory "/var/www/html">
-        Options Indexes FollowSymLinks
+    ServerName local.dev
+    ServerAlias www.local.dev
+    DocumentRoot /var/www/html
+    <Directory /var/www/html>
+        Options Indexes FollowSymLinks MultiViews
         AllowOverride All
-        Require all granted
+        Order allow,deny
+        allow from all
     </Directory>
 </VirtualHost>
 EOF
@@ -76,10 +79,12 @@ sudo apt-get -y install npm
 
 echo -e "\n--- Installa Gulp ---\n"
 npm install --global gulp-cli
-sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
 
 echo -e "\n--- Installa Gulp Sass ---\n"
 npm install --global gulp-sass
 
 echo -e "\n--- Installa Browser Sync ---\n"
 npm install --global browser-sync
+
+echo -e "\n--- Modifica permessi directory node_modules ---\n"
+sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
