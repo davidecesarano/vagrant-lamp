@@ -44,6 +44,45 @@ If you prefer to use a domain name than the IP address you can add a record to t
 192.168.33.10    local.dev
 ```
 
+## Customize and enable more Virtual Host
+Now that we have our first virtual host file established, we can create our second one by copying that file and adjusting it as needed.
+
+Start by copying it:
+```
+$ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/test.com.conf
+```
+
+Open the new file with root privileges in your editor:
+```
+$ sudo nano /etc/apache2/sites-available/test.com.conf
+```
+
+You now need to modify all of the pieces of information to reference your second domain:
+```
+<VirtualHost *:80>
+    ServerName test.com
+    ServerAlias www.test.com
+    DocumentRoot /var/www/html/test
+    <Directory /var/www/html/test>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+</VirtualHost>
+```
+
+Now that we have created our virtual host files, we must enable them:
+```
+$ sudo a2ensite test.com.conf
+$ sudo service apache2 restart
+```
+
+Set up local hosts file:
+```
+192.168.33.10    test.com
+```
+
 ## Database
 * Username: root
 * Password: vagrant
