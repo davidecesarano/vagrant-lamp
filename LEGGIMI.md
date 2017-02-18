@@ -7,6 +7,7 @@ Configurazione personale per il setup di un server LAMP con Vagrant.
 * [Installazione](#installazione)
 * [Utilizzo](#utilizzo)
 * [Virtual Host](#virtual-host)
+* [Configurare e abilitare più Virtual Host](#configurare-e-abilitare-piu-virtual-host)
 * [Credenziali Database](#credenziali-database)
 * [Cambiare la directory .vagrant](#cambiare-la-directory-vagrant)
 * [Usare npm install](#usare-npm-install)
@@ -52,6 +53,43 @@ Ora è possibile accedere alla `DocumentRoot` qui http://192.168.33.10
 Se si preferisce utilizzare un nome di dominio rispetto a un indirizzo IP è possibile aggiungere un record al file host del sistema operativo.
 ```
 192.168.33.10    local.dev
+```
+
+## Configurare e abilitare più Virtual Host
+E' possibile creare altri domini virtuali partendo da quello di default.
+```
+$ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/test.com.conf
+```
+
+Modificare il file:
+```
+$ sudo nano /etc/apache2/sites-available/test.com.conf
+```
+
+Aggiungere le informazioni relative al nuovo dominio:
+```
+<VirtualHost *:80>
+    ServerName test.com
+    ServerAlias www.test.com
+    DocumentRoot /var/www/html/test
+    <Directory /var/www/html/test>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+</VirtualHost>
+```
+
+Abilitare il nuovo dominio:
+```
+$ sudo a2ensite test.com.conf
+$ sudo service apache2 restart
+```
+
+Aggiungere un nuovo record al file host del sistema operativo:
+```
+192.168.33.10    test.com
 ```
 
 ## Credenziali Database
