@@ -7,7 +7,7 @@ Configurazione personale per il setup di un server LAMP con Vagrant.
 * [Installazione](#installazione)
 * [Utilizzo](#utilizzo)
 * [Virtual Host](#virtual-host)
-* [Configurare e abilitare più Virtual Host](#configurare-e-abilitare-piu-virtual-host)
+* [Configurare e abilitare più Virtual Host](#configurare-e-abilitare-più-virtual-host)
 * [Credenziali Database](#credenziali-database)
 * [Cambiare la directory .vagrant](#cambiare-la-directory-vagrant)
 * [Usare npm install](#usare-npm-install)
