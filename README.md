@@ -27,13 +27,13 @@ Personal configuration for the setup of a LAMP server with Vagrant.
 ## Installation
 Clone the repository
 ```
-$ git clone https://github.com/davidecesarano/my-vagrant-lamp.git
+$ git clone https://github.com/davidecesarano/config-vagrant-lamp.git
 ```
 
 ## Usage
 Run the commands
 ```
-$ cd my-vagrant-lamp
+$ cd config-vagrant-lamp
 $ vagrant up
 ```
 Now you can access the `DocumentRoot` here http://192.168.33.10
