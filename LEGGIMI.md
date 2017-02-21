@@ -38,13 +38,13 @@ Configurazione personale per il setup di un server LAMP con Vagrant.
 ## Installazione
 Clonare la repository
 ```
-$ git clone https://github.com/davidecesarano/my-vagrant-lamp.git
+$ git clone https://github.com/davidecesarano/config-vagrant-lamp.git
 ```
 
 ## Utilizzo
 Lanciare i comandi
 ```
-$ cd my-vagrant-lamp
+$ cd config-vagrant-lamp
 $ vagrant up
 ```
 Ora è possibile accedere alla `DocumentRoot` qui http://192.168.33.10
