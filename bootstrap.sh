@@ -70,21 +70,3 @@ sudo apt-get -y install git
 echo -e "\n--- Installa Composer ---\n"
 curl -s https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
-
-echo -e "\n--- Installa Nodejs e npm ---\n"
-sudo apt-get update 
-sudo apt-get -y install nodejs
-sudo ln -s "$(which nodejs)" /usr/bin/node
-sudo apt-get -y install npm
-
-echo -e "\n--- Installa Gulp ---\n"
-npm install --global gulp-cli
-
-echo -e "\n--- Installa Gulp Sass ---\n"
-npm install --global gulp-sass
-
-echo -e "\n--- Installa Browser Sync ---\n"
-npm install --global browser-sync
-
-echo -e "\n--- Modifica permessi directory node_modules ---\n"
-sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}

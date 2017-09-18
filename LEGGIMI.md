@@ -10,7 +10,6 @@ Configurazione personale per il setup di un server LAMP con Vagrant.
 * [Configurare e abilitare più Virtual Host](#configurare-e-abilitare-più-virtual-host)
 * [Credenziali Database](#credenziali-database)
 * [Cambiare la directory .vagrant](#cambiare-la-directory-vagrant)
-* [Usare npm install](#usare-npm-install)
 
 ***Nota:*** Questa configurazione è stata provata su sistemi operativi Microsoft Windows.
 
@@ -32,8 +31,6 @@ Configurazione personale per il setup di un server LAMP con Vagrant.
 * phpMyAdmin 4.0.10
 * Git
 * Composer
-* Nodejs
-* npm
 
 ## Installazione
 Clonare la repository
@@ -109,23 +106,3 @@ La variabile ***VAGRANT_DOTFILE_PATH*** può essere impostata in Windows seguend
 1. **Sistema > Impostazioni di sistema avanzata > Variabili d'ambiente...**
 2. In Variabili di Sistema seleziona **Nuova..**
 3. Nome variabile = VAGRANT_DOTFILE_PATH, Valore variabile = .vagrant-home
-
-## Usare npm install
-Il mancato funzionamento del comando **npm install** è dovuto alla mancanza di supporto per i link simbolici in Windows e da una configurazione di Vagrant che impedisce la creazione di link simbolici nelle cartelle condivise. Per aggirare questo problema è necessario seguire questi passaggi:
-
-* Eseguire il prompt dei comandi Windows (o Git Bash) in **modalità amministratore**.
-* Lanciare i comandi
-```
-$ vagrant up
-$ vagrant ssh
-```
-* Nella directory in cui vogliamo installare i packages npm eliminare, se presente, la directory **node_modules**.
-* Creare una directory nel sistema con
-```
-$ mkdir ~/node_modules
-```
-* Creare un link simbolico dalla directory ~/node_modules a quella in cui si vogliono installare i packages
-```
-$ sudo ln -s ~/node_modules /var/www/html/project
-```
-* In `/var/www/html/project` è ora possibile installare un pacchetto locale con `npm install`.

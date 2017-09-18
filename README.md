@@ -21,8 +21,6 @@ Personal configuration for the setup of a LAMP server with Vagrant.
 * phpMyAdmin 4.0.10
 * Git
 * Composer
-* Nodejs
-* npm
 
 ## Installation
 Clone the repository
@@ -99,22 +97,3 @@ In Windows you can set ***VAGRANT_DOTFILE_PATH***:
 1. **System > Advanced system settings > Environment Variables**
 2. Select **New**
 3. Variable name = VAGRANT_DOTFILE_PATH, Variable value = .vagrant-home
-
-## npm install usage
-
-* Run cmd (or Git Bash) in **Run as Administrator**.
-* Run the commands
-```
-$ vagrant up
-$ vagrant ssh
-```
-* Delete the **node_modules** directory if it exists in project directory.
-* Create a directory "node_modules" in the VM's home directory
-```
-$ mkdir ~/node_modules
-```
-* Link a local node_modules dir from within the project's directory
-```
-$ sudo ln -s ~/node_modules /var/www/html/project
-```
-* Install the packages in `/var/www/html/project` with `npm install`.
