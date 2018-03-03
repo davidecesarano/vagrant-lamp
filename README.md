@@ -1,5 +1,5 @@
 # Vagrant LAMP (Linux Apache MySQL PHP)
-Personal configuration for the setup of a LAMP server with Vagrant.
+Personal configuration for the setup of a basic LAMP server with Vagrant.
 
 ***Note:*** This configuration has been set on Microsoft Windows. 
 
@@ -15,10 +15,10 @@ Personal configuration for the setup of a LAMP server with Vagrant.
 
 ## Installed Software
 * Ubuntu Server 14.04 LTS
-* Apache 2.4.7
-* PHP 5.5.9
-* MySQL 5.5.54
-* phpMyAdmin 4.0.10
+* Apache 2
+* PHP 5
+* MySQL
+* phpMyAdmin
 * Git
 * Composer
 
