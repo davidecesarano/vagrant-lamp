@@ -8,7 +8,7 @@ sudo apt-get update
 echo -e "\n--- Installa Apache ---\n"
 sudo apt-get install -y apache2
 
-echo -e "\n--- Installa PHP ---\n"
+echo -e "\n--- Installa PHP 7.1 ---\n"
 sudo apt-get install -y software-properties-common
 sudo apt-get install -y language-pack-en-base
 sudo LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php
