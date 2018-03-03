@@ -24,9 +24,9 @@ Configurazione personale per il setup di un server LAMP con Vagrant.
 * Sposta i database MySQL nella directory `/mysql`
 
 ## Software Installati
-* Ubuntu Server 14.04 LTS
+* Ubuntu 16.04 LTS
 * Apache 2
-* PHP 5
+* PHP 7.1
 * MySQL
 * phpMyAdmin
 * Git
@@ -72,8 +72,7 @@ Aggiungere le informazioni relative al nuovo dominio:
     <Directory /var/www/test>
         Options Indexes FollowSymLinks MultiViews
         AllowOverride All
-        Order allow,deny
-        allow from all
+        Require all granted
     </Directory>
 </VirtualHost>
 ```
