@@ -60,8 +60,8 @@ You now need to modify all of the pieces of information to reference your second
 <VirtualHost *:80>
     ServerName test.com
     ServerAlias www.test.com
-    DocumentRoot /var/www/html/test
-    <Directory /var/www/html/test>
+    DocumentRoot /var/www/test
+    <Directory /var/www/test>
         Options Indexes FollowSymLinks MultiViews
         AllowOverride All
         Order allow,deny
