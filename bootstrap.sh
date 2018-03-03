@@ -9,13 +9,16 @@ echo -e "\n--- Installa Apache ---\n"
 sudo apt-get install -y apache2
 
 echo -e "\n--- Installa PHP ---\n"
-sudo apt-get -y install php5 libapache2-mod-php5 php5-mcrypt php5-cgi php5-cli php5-curl
+sudo apt-get install -y software-properties-common
+sudo apt-get install -y language-pack-en-base
+sudo LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt install -y php7.1 libapache2-mod-php7.1 php7.1-common php7.1-mbstring php7.1-xmlrpc php7.1-soap php7.1-gd php7.1-xml php7.1-intl php7.1-mysql php7.1-cli php7.1-mcrypt php7.1-zip php7.1-curl
 
 echo -e "\n--- Installa MySQL ---\n"
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $PASSWORD"
 sudo apt-get -y install mysql-server
-sudo apt-get install php5-mysql
 
 echo -e "\n--- Installa phpMyAdmin ---\n"
 sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
@@ -34,8 +37,7 @@ VHOST=$(cat <<EOF
     <Directory /var/www/html>
         Options Indexes FollowSymLinks MultiViews
         AllowOverride All
-        Order allow,deny
-        allow from all
+        Require all granted
     </Directory>
 </VirtualHost>
 EOF
@@ -55,14 +57,6 @@ sudo service apache2 restart
 
 echo -e "\n--- Ferma MySQL ---\n"
 sudo /etc/init.d/mysql stop
-
-echo -e "\n--- Abilita mcrypt per phpMyAdmin ---\n"
-sudo updatedb
-sudo sed -i 's#extension=mcrypt.so#extension=/usr/lib/php5/20121212/mcrypt.so#g' /etc/php5/mods-available/mcrypt.ini
-sudo ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
-sudo ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/apache2/conf.d/20-mcrypt.ini
-sudo service apache2 restart
-sudo service php5 restart
 
 echo -e "\n--- Installa GIT ---\n"
 sudo apt-get -y install git
