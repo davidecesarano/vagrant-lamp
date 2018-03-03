@@ -25,10 +25,10 @@ Configurazione personale per il setup di un server LAMP con Vagrant.
 
 ## Software Installati
 * Ubuntu Server 14.04 LTS
-* Apache 2.4.7
-* PHP 5.5.9
-* MySQL 5.5.54
-* phpMyAdmin 4.0.10
+* Apache 2
+* PHP 5
+* MySQL
+* phpMyAdmin
 * Git
 * Composer
 
@@ -68,8 +68,8 @@ Aggiungere le informazioni relative al nuovo dominio:
 <VirtualHost *:80>
     ServerName test.com
     ServerAlias www.test.com
-    DocumentRoot /var/www/html/test
-    <Directory /var/www/html/test>
+    DocumentRoot /var/www/test
+    <Directory /var/www/test>
         Options Indexes FollowSymLinks MultiViews
         AllowOverride All
         Order allow,deny
