@@ -14,9 +14,9 @@ Personal configuration for the setup of a basic LAMP server with Vagrant.
 * Move the MySQL database directory in `/mysql`
 
 ## Installed Software
-* Ubuntu Server 14.04 LTS
+* Ubuntu 16.04 LTS
 * Apache 2
-* PHP 5
+* PHP 7.1
 * MySQL
 * phpMyAdmin
 * Git
@@ -64,8 +64,7 @@ You now need to modify all of the pieces of information to reference your second
     <Directory /var/www/test>
         Options Indexes FollowSymLinks MultiViews
         AllowOverride All
-        Order allow,deny
-        allow from all
+        Require all granted
     </Directory>
 </VirtualHost>
 ```
