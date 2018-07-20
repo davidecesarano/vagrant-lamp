@@ -39,7 +39,7 @@ Now you can access the `DocumentRoot` here http://192.168.33.10
 ## Virtual Host
 If you prefer to use a domain name than the IP address you can add a record to the host file.
 ```
-192.168.33.10    local.dev
+192.168.33.10   dev.local
 ```
 
 ## Customize and enable more Virtual Host
@@ -77,7 +77,7 @@ $ sudo service apache2 restart
 
 Set up local hosts file:
 ```
-192.168.33.10    test.com
+192.168.33.10   test.com
 ```
 
 ## Database
